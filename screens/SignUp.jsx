@@ -1,6 +1,7 @@
-import { Text, StyleSheet, View, TextComponent } from 'react-native'
+import { Text, StyleSheet, View, TextComponent, Pressable } from 'react-native'
 import React, { Component } from 'react'
-import { Button, TextInput } from 'react-native-web'
+import {useState} from "react"
+import { TextInput } from 'react-native-web'
 
 export default class SignUp extends Component {
   render() {
@@ -13,11 +14,35 @@ export default class SignUp extends Component {
         </View>
         <Text style={styles.welc}>Welcome...</Text>
         <Text style={styles.filltext}>Please fill in the information</Text>
-      </View>
-      <View>
-         <TextInput
-         
-         /> 
+        <View style={styles.form}>
+            <View style={styles.inputGroup}>
+        <TextInput placeholder = "Full Name" style={styles.input}/>
+        </View>
+        <View style={styles.inputGroup}>
+          <TextInput placeholder = "Phone Number" style={styles.input} />
+        </View>
+        <View style={styles.inputGroup}>
+         <TextInput placeholder = "Your Email" style={styles.input} />
+        </View>
+        {/* <Pressable
+              onPress={handleSubmit}
+              title="Submit"
+              style={styles.button}
+            >
+              <Text style={styles.buttonTitle}>
+                  {loading ? 'Signg in ...' : 'Sign in'}
+              </Text>
+            </Pressable> */}
+
+            <Pressable
+                title="Submit"
+                style={styles.button}>
+                    <Text style={styles.buttonTitle}>
+                       Proceed
+                    </Text>
+            </Pressable>
+           
+        </View>
       </View>
       </View>
     )
@@ -64,5 +89,39 @@ const styles = StyleSheet.create({
     color:"grey",
     alignSelf:"center",
     marginTop:"10px",
-    }
+    },
+    form:{
+    marginTop: "20px",
+    marginBottom: "20px",
+    },
+  
+    inputGroup: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth : 1,
+    borderColor: "#f2f0f0",
+    height: 40,
+    borderRadius: 5,
+    paddingLeft: 10,
+    marginBottom:20
+  },
+    
+    input: {
+    height: "100%",
+    width: "100%",
+    paddingLeft: 10,
+    color: 'gray',
+    fontSize: 12,
+  },
+    button: {
+    backgroundColor: "#ee921c",
+    padding: "12px",
+    borderRadius: 5
+  },
+  
+    buttonTitle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
 })

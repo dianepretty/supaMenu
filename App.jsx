@@ -11,7 +11,7 @@ export default function App() {
   return (
    
     <SignUp></SignUp>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
