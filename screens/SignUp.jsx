@@ -57,7 +57,10 @@ export default class SignUp extends Component {
            </Text>
            </Pressable>
 
-           <Text></Text>
+            <View style={styles.title}>
+           <Text>Don't have an account ?</Text>
+           <Text>Register</Text>
+           </View>
         </View>
       </View>
       </View>
@@ -81,17 +84,16 @@ const styles = StyleSheet.create({
     title:{
       flexDirection:"row",
       alignSelf:"center",
+      marginTop: "30px"
       
     },
     supa:{
         fontSize:"37px",
-        marginTop:"10px",
         fontWeight:"700",
 
     },
     menu:{
         fontSize:"37px",
-        marginTop:"10px",
         fontWeight:"700",
         color:"orange",
     },
