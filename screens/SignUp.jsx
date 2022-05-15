@@ -41,7 +41,23 @@ export default class SignUp extends Component {
                        Proceed
                     </Text>
             </Pressable>
+
+            <Text style={styles.line}>
+                OR
+            </Text>
+            <Text style={styles.line}>
+                If you have a PMG account
+            </Text>
            
+           <Pressable
+           style={styles.button}
+           >
+           <Text style = {styles.buttonTitle}>
+               Sign In
+           </Text>
+           </Pressable>
+
+           <Text></Text>
         </View>
       </View>
       </View>
@@ -52,7 +68,7 @@ export default class SignUp extends Component {
 const styles = StyleSheet.create({
     container:{
         backgroundColor:"orange",
-        height:"100%"
+        height:"40em"
     },
     minicontainer:{
       backgroundColor:"white",
@@ -116,7 +132,8 @@ const styles = StyleSheet.create({
     button: {
     backgroundColor: "#ee921c",
     padding: "12px",
-    borderRadius: 5
+    borderRadius: 5,
+    marginTop: "20px",
   },
   
     buttonTitle: {
@@ -124,4 +141,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center"
   },
+  line:{
+       color:"gray",
+    marginTop:20,
+    textAlign:'center',
+  }
 })
