@@ -58,8 +58,8 @@ export default class SignUp extends Component {
            </Pressable>
 
             <View style={styles.title}>
-           <Text>Don't have an account ?</Text>
-           <Text>Register</Text>
+           <Text style={styles.registerButt}>Don't have an account ?</Text>
+           <Text style={styles.registerBut}>Register</Text>
            </View>
         </View>
       </View>
@@ -99,12 +99,12 @@ const styles = StyleSheet.create({
     },
     welc:{
        fontWeight:"600",
-       color:"grey",
+       color:"gray",
        alignSelf:"center",
        marginTop:"10%",
     },
     filltext:{
-    color:"grey",
+    color:"gray",
     alignSelf:"center",
     marginTop:"10px",
     },
@@ -147,5 +147,11 @@ const styles = StyleSheet.create({
        color:"gray",
     marginTop:20,
     textAlign:'center',
+  },
+  registerButt:{
+  color:"gray",
+  },
+  registerBut:{
+      color: "orange",
   }
 })
