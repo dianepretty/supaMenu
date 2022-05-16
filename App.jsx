@@ -8,10 +8,13 @@ import RateUs from './screens/RateUs';
 export default function App() {
 
   return (
-   
-      
-<RateUs></RateUs>
+   <View>
+     <RateUs></RateUs>
     
+
+   </View>
+      
+
   );
 }
 
