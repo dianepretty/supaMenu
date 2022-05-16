@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {tailwind} from 'tailwind-rn';
 import Landing from './screens/Landing';
 import Menu from './screens/Menu';
+import Payement from './screens/Payement';
 import RateUs from './screens/RateUs';
 import SignUp from './screens/SignUp';
 
@@ -10,9 +11,13 @@ import SignUp from './screens/SignUp';
 export default function App() {
 
   return (
-   
-    <Landing></Landing>
-  )
+   <View >
+<Payement></Payement>
+
+   </View>
+      
+
+  );
 }
 
 const styles = StyleSheet.create({
