@@ -38,7 +38,7 @@ export default class Login extends Component {
            style={styles.Gbutton}
            >
            <Text style = {styles.GbuttonTitle}>
-               Sign In
+              Login with google
            </Text>
            </Pressable>
 
@@ -46,10 +46,10 @@ export default class Login extends Component {
            style={styles.Gbutton}
            >
            <Text style = {styles.GbuttonTitle}>
-               Sign In
+               Login with facebook
            </Text>
            </Pressable>
-
+             <Text style={styles.forgotBut}>Forgot password?</Text>
             <View style={styles.title}>
            <Text style={styles.registerButt}>Don't have an account ?</Text>
            <Text style={styles.registerBut}>Register</Text>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     title:{
       flexDirection:"row",
       alignSelf:"center",
-      marginTop: "30px"
+      marginTop: 10,
       
     },
     supa:{
@@ -138,10 +138,11 @@ const styles = StyleSheet.create({
   },
   Gbutton: {
     backgroundColor: "#fff",
-    padding: "12px",
+    padding: 12,
     borderRadius: 5,
-    border :"solid",
-    marginTop: "20px",
+    borderWidth : 1,
+    borderColor: "#f2f0f0",
+    marginTop: 20,
   },
   
     GbuttonTitle: {
@@ -159,5 +160,10 @@ const styles = StyleSheet.create({
   },
   registerBut:{
       color: "orange",
+  },
+  forgotBut: {
+      color: "orange",
+      alignSelf: "center",
+      marginTop: 20,
   }
 })
