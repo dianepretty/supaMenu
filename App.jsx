@@ -4,6 +4,7 @@ import {tailwind} from 'tailwind-rn';
 import Menu from './screens/Menu';
 import Payement from './screens/Payement';
 import RateUs from './screens/RateUs';
+import SignUp from './screens/SignUp';
 
 
 export default function App() {
