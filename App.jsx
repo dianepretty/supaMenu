@@ -9,8 +9,7 @@ export default function App() {
 
   return (
    <View>
-     <RateUs></RateUs>
-    
+   <Menu></Menu>
 
    </View>
       
