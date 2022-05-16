@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {tailwind} from 'tailwind-rn';
 import Landing from './screens/Landing';
+import Login from './screens/Login';
 import Menu from './screens/Menu';
 import Payement from './screens/Payement';
 import RateUs from './screens/RateUs';
@@ -12,7 +13,7 @@ export default function App() {
 
   return (
    <View >
-<Payement></Payement>
+    <Login></Login>
 
    </View>
       
