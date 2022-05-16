@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         color:"orange",
     },
     welc:{
-       fontWeight:"600",
+       fontWeight:"600",  
        color:"gray",
        alignSelf:"center",
        marginTop:"10%",
