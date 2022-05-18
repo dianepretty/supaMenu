@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
         
       },
       supa:{
-          fontSize:"37px",
+          fontSize:37,
           fontWeight:"700",
   
       },
       menu:{
-          fontSize:"37px",
+          fontSize:37,
           fontWeight:"700",
           color:"#fff",
       },

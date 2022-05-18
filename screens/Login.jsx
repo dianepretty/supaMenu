@@ -77,16 +77,16 @@ const styles = StyleSheet.create({
     title:{
       flexDirection:"row",
       alignSelf:"center",
-      marginTop: 10,
+      marginTop: 10
       
     },
     supa:{
-        fontSize:"37px",
-        fontWeight:"700",
+        fontSize:37,
+        fontWeight:700,
 
     },
     menu:{
-        fontSize:"37px",
+        fontSize:37,
         fontWeight:"700",
         color:"orange",
     },
@@ -99,11 +99,11 @@ const styles = StyleSheet.create({
     filltext:{
     color:"gray",
     alignSelf:"center",
-    marginTop:"10px",
+    marginTop:10,
     },
     form:{
-    marginTop: "20px",
-    marginBottom: "20px",
+    marginTop: 20,
+    marginBottom:20,
     },
   
     inputGroup: {
@@ -126,9 +126,9 @@ const styles = StyleSheet.create({
   },
     button: {
     backgroundColor: "#ee921c",
-    padding: "12px",
+    padding: 12,
     borderRadius: 5,
-    marginTop: "20px",
+    marginTop:20
   },
   
     buttonTitle: {

@@ -7,16 +7,13 @@ import Menu from './screens/Menu';
 import Payement from './screens/Payement';
 import RateUs from './screens/RateUs';
 import SignUp from './screens/SignUp';
+import LoginPage from './screens/LoginPage';
 
 
 export default function App() {
-
   return (
-   <View >
-    <Login></Login>
-
-   </View>
-      
+   
+   <LoginPage/>   
 
   );
 }
