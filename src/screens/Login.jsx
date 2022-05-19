@@ -1,6 +1,5 @@
 import { Text, StyleSheet, View, TextComponent, Pressable } from 'react-native'
 import React, { Component } from 'react'
-import {useState} from "react"
 import { TextInput } from 'react-native-web'
 
 export default class Login extends Component {
