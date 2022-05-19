@@ -133,9 +133,9 @@ const styles = StyleSheet.create({
   },
     button: {
     backgroundColor: "#ee921c",
-    padding: "12px",
+    padding: 12,
     borderRadius: 5,
-    marginTop: "20px",
+    marginTop: 20,
   },
   
     buttonTitle: {

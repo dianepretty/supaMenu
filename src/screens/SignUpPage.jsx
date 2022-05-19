@@ -11,13 +11,16 @@ export default class SignUpPage extends Component {
           <Text style={styles.menu}>Menu</Text>
           </View>
           <Text style={styles.welc}>Welcome...</Text>
-          <Text style={styles.filltext}>Sign in to continue</Text>
+          <Text style={styles.filltext}>Please fill in the information</Text>
           <View style={styles.form}>
             <View style={styles.inputGroup}>
-              <TextInput placeholder="Your Email" style={styles.input}/>
-            </View>
-            <View style={styles.inputGroup}>
-            <TextInput placeholder = "Password" style={styles.input} />
+            <TextInput placeholder = "Full Name" style={styles.input}/>
+        </View>
+        <View style={styles.inputGroup}>
+          <TextInput placeholder = "Phone Number" style={styles.input} />
+        </View>
+        <View style={styles.inputGroup}>
+         <TextInput placeholder = "Your Email" style={styles.input} />
           </View>
           
           <TouchableOpacity
@@ -25,32 +28,27 @@ export default class SignUpPage extends Component {
                   style={styles.button}
                   >
                       <Text style={styles.buttonTitle}>
-                         Sign in
+                         Proceed
                       </Text>
               </TouchableOpacity>
               <Text style={styles.line}>
                   OR
               </Text>
-              <TouchableOpacity
-             style={styles.Gbutton}
-             >
-             <Text style = {styles.GbuttonTitle}>
-                Login with google
-             </Text>
-             </TouchableOpacity>
-  
+              <Text style={styles.line}>
+                If you have a PMG account
+            </Text>
+
              <TouchableOpacity
-             style={styles.Gbutton}
+             style={styles.button}
              >
-             <Text style = {styles.GbuttonTitle}>
-                 Login with facebook
+             <Text style = {styles.buttonTitle}>
+                 Sign in 
              </Text>
              </TouchableOpacity>
-             <Text style={styles.forgotBut}>Forgot password?</Text>
-              <View style={styles.title}>
-             <Text style={styles.registerButt}>Don't have an account ?</Text>
-             <Text style={styles.registerBut}>Register</Text>
-             </View>
+             <View style={styles.title}>
+           <Text style={styles.registerButt}>Don't have an account ?</Text>
+           <Text style={styles.registerBut}>Register</Text>
+           </View>
           </View>
           </View>
         </View>
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
         height: 780
     },
      minicontainer:{
-     backgroundColor:"white",
+     backgroundColor:"#ffffff",
       marginTop: 90,
       borderTopRightRadius: 32,
       borderTopLeftRadius: 32,
@@ -164,10 +162,5 @@ registerButt:{
       color: "#f9af55",
       fontWeight:"bold"
   },
-   forgotBut: {
-      color: "#f9af55",
-      alignSelf: "center",
-      fontWeight:"bold",
-      marginTop: 20,
-  }
+
 })
