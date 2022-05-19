@@ -78,11 +78,10 @@ const styles = StyleSheet.create({
       flexDirection:"row",
       alignSelf:"center",
       marginTop: 10
-      
     },
     supa:{
         fontSize:37,
-        fontWeight:700,
+        fontWeight:"700",
 
     },
     menu:{
