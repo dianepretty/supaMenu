@@ -1,5 +1,6 @@
-import LoginPage from "./src/screens/LoginPage";
+// import PaymentDone from "./src/screens/PaymentDone";
+import Restaurants from "./src/screens/Restaurant";
 
 export default function App() {
-  return <LoginPage/> ;
+  return <Restaurants />;
 }
