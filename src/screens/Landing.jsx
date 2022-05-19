@@ -16,7 +16,7 @@ export default class Landing extends Component {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:"orange",
+        backgroundColor:"#ee921c",
         height: "100%",
     },
     title:{

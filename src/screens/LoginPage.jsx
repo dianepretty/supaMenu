@@ -46,6 +46,11 @@ export default class LoginPage extends Component {
                Login with facebook
            </Text>
            </TouchableOpacity>
+           <Text style={styles.forgotBut}>Forgot password?</Text>
+            <View style={styles.title}>
+           <Text style={styles.registerButt}>Don't have an account ?</Text>
+           <Text style={styles.registerBut}>Register</Text>
+           </View>
         </View>
         </View>
       </View>
@@ -55,7 +60,7 @@ export default class LoginPage extends Component {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: "#ee921c",
+        backgroundColor: "#f7941d",
         height: 780
     },
      minicontainer:{
@@ -118,7 +123,7 @@ form:{
   fontSize: 12,
 },
 button: {
-  backgroundColor: "#ee921c",
+  backgroundColor: "#f7941d",
   padding: 12,
   borderRadius: 5,
   padding: 18,
@@ -154,13 +159,15 @@ padding: 12,
 },
 registerButt:{
   color:"gray",
-  },
+},
   registerBut:{
-      color: "orange",
+      color: "#f9af55",
+      fontWeight:"bold"
   },
    forgotBut: {
-      color: "orange",
+      color: "#f9af55",
       alignSelf: "center",
+      fontWeight:"bold",
       marginTop: 20,
   }
 })
