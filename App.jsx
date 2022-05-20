@@ -1,8 +1,5 @@
-import LoginPage from "./src/screens/LoginPage";
-import Landing from "./src/screens/Landing";
-import SignUpPage from "./src/screens/SignUpPage";
-import LandingPage from "./src/screens/LandingPage";
+import Resto from "./src/screens/Restaurant/Resto";
 
 export default function App() {
-  return <LandingPage />;
+  return <Resto />;
 }

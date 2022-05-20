@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 
-export default function Restos({ navigation }) {
+export default function Restaurants({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Nearby Restaurant</Text>
