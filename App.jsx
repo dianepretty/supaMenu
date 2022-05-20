@@ -1,12 +1,22 @@
-import {NavigationContainer} from '@react-navigation/native'
-import LoginPage from "./src/screens/LoginPage";
-import SignUpPage from "./src/screens/SignUpPage";
+import React, { useState, useEffect } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./src/navigation/Tabs";
 import LandingPage from "./src/screens/LandingPage";
-import Tabs from './src/navigation/Tabs';
-import Payement from "./src/screens/Payement";
+import AuthStack from "./src/navigation/AuthStack";
 
 export default function App() {
-  return (
-  <Payement/>
+  const [appIsReady, setAppIsReady] = useState(false);
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAppIsReady(true);
+    }, 3000);
+  }, []);
+
+  return appIsReady ? (
+    <NavigationContainer>{auth ? <Tabs /> : <AuthStack />}</NavigationContainer>
+  ) : (
+    <LandingPage />
   );
 }

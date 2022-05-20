@@ -1,13 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 
-export default function Restos({ navigation }) {
+export default function Restaurants({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Nearby Restaurant</Text>
       <View style={{ marginTop: 35 }}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Resto", {})}
+          onPress={() => navigation.navigate("Menu", {})}
           style={styles.resto}
         >
           <Image

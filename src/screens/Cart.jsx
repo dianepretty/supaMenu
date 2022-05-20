@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function Resto() {
+export default function Cart() {
   return (
     <View style={styles.container}>
       <View style={{ paddingRight: 30 }}>
