@@ -1,6 +1,6 @@
 import { Text, StyleSheet, View ,TextInput , TouchableOpacity} from 'react-native'
 import React, { Component } from 'react'
-import { MaterialCommunityIcons , AntDesign , SimpleLineIcons,Feather  } from '@expo/vector-icons';
+import { MaterialCommunityIcons , AntDesign , Zocial  } from '@expo/vector-icons';
 export default class LoginPage extends Component {
   render() {
     return (
@@ -53,19 +53,19 @@ export default class LoginPage extends Component {
               </View>
              
             <View style={styles.Gbutton}>     
-            <SimpleLineIcons name="social-google" size={24} color="grey"  />
-            <TouchableOpacity >
+            <AntDesign name="google" size={24} color="grey" />
+                        <TouchableOpacity >
            <Text style = {styles.GbuttonTitle}>
-              Login with google
+              Login with Google
            </Text>
            </TouchableOpacity>
            </View>
 
            <View style={styles.Gbutton}>
-             <Feather name="facebook" size={30} color="grey" />  
-           <TouchableOpacity>
+           <Zocial name="facebook" size={24} color="grey" />
+                      <TouchableOpacity>
            <Text style = {styles.GbuttonTitle}>
-               Login with facebook
+               Login with Facebook
            </Text>
            </TouchableOpacity>
            </View>
@@ -158,6 +158,7 @@ button: {
 
   buttonTitle: {
   color: "white",
+  fontSize:16,
   fontWeight: "bold",
   textAlign: "center"
 },
@@ -177,6 +178,7 @@ padding:10,
   flexDirection:"row",
   alignItems:"center",
   margin: 10,
+  padding: 15,
   backgroundColor:"fff",
   borderWidth: 1,
   borderColor:"#f2f0f0",
@@ -184,12 +186,14 @@ padding:10,
 },
 
   GbuttonTitle: {
-  color: "gray",
-  margin:10,
+  color: "#9098b1",
+  marginLeft:90,
+  fontSize:14,
+  textAlign:"center",
   fontWeight: "bold",
 },
 registerButt:{
-  color:"gray",
+  color:"#9098b1",
 },
   registerBut:{
       color: "#f9af55",
