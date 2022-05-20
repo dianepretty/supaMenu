@@ -1,6 +1,6 @@
 import { Text, StyleSheet, View ,TextInput , TouchableOpacity} from 'react-native'
 import React, { Component } from 'react'
-
+import { MaterialCommunityIcons , AntDesign , SimpleLineIcons } from '@expo/vector-icons';
 export default class LoginPage extends Component {
   render() {
     return (
@@ -14,9 +14,11 @@ export default class LoginPage extends Component {
         <Text style={styles.filltext}>Sign in to continue</Text>
         <View style={styles.form}>
           <View style={styles.inputGroup}>
+            <MaterialCommunityIcons name="email-outline" size={24} color="gray" />
             <TextInput placeholder="Your Email" style={styles.input}/>
           </View>
           <View style={styles.inputGroup}>
+            <AntDesign name="lock1" size={25} color="gray" />
           <TextInput placeholder = "Password" style={styles.input} />
         </View>
         
@@ -31,21 +33,24 @@ export default class LoginPage extends Component {
             <Text style={styles.line}>
                 OR
             </Text>
-            <TouchableOpacity
-           style={styles.Gbutton}
-           >
+
+            <View style={styles.Gbutton}>
+            <SimpleLineIcons name="social-google" size={24} color="blue" />
+            <TouchableOpacity >
            <Text style = {styles.GbuttonTitle}>
               Login with google
            </Text>
            </TouchableOpacity>
+           </View>
 
-           <TouchableOpacity
-           style={styles.Gbutton}
-           >
+           <View style={styles.Gbutton}>  
+           <TouchableOpacity>
            <Text style = {styles.GbuttonTitle}>
                Login with facebook
            </Text>
            </TouchableOpacity>
+           </View>
+
            <Text style={styles.forgotBut}>Forgot password?</Text>
             <View style={styles.title}>
            <Text style={styles.registerButt}>Don't have an account ?</Text>
@@ -141,10 +146,11 @@ marginTop:20,
 textAlign:'center',
 },
 Gbutton: {
-padding: 12,
+padding:10,
   borderRadius: 5,
+  flexDirection:"row",
+  alignItems:"center",
   margin: 10,
-
   backgroundColor:"fff",
   borderWidth: 1,
   borderColor:"#f2f0f0",
@@ -155,7 +161,6 @@ padding: 12,
   color: "gray",
   margin:10,
   fontWeight: "bold",
-  textAlign: "center"
 },
 registerButt:{
   color:"gray",

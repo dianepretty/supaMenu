@@ -1,5 +1,6 @@
 import {  Text, StyleSheet, View ,TextInput , TouchableOpacity } from 'react-native'
 import React, { Component } from 'react'
+import { Ionicons,MaterialIcons,MaterialCommunityIcons  } from '@expo/vector-icons';
 
 export default class SignUpPage extends Component {
   render() {
@@ -14,12 +15,15 @@ export default class SignUpPage extends Component {
           <Text style={styles.filltext}>Please fill in the information</Text>
           <View style={styles.form}>
             <View style={styles.inputGroup}>
+              <Ionicons name="person-outline" size={25} color="gray" />
             <TextInput placeholder = "Full Name" style={styles.input}/>
         </View>
         <View style={styles.inputGroup}>
+          <MaterialIcons name="smartphone" size={24} color="gray" />
           <TextInput placeholder = "Phone Number" style={styles.input} />
         </View>
         <View style={styles.inputGroup}>
+          <MaterialCommunityIcons name="email-outline" size={24} color="gray" />
          <TextInput placeholder = "Your Email" style={styles.input} />
           </View>
           
@@ -31,9 +35,27 @@ export default class SignUpPage extends Component {
                          Proceed
                       </Text>
               </TouchableOpacity>
-              <Text style={styles.line}>
+              <View  style={{
+            flexDirection: "row",
+            alignItems: "center",
+            paddingVertical: 4,
+            paddingHorizontal:16,
+            width: "100%",
+          }}>
+              <View style={styles.divider} />
+              <View>
+              <Text style={{
+                width:70,
+                fontWeight:"bold",
+                color:"gray",
+                textAlign:"center"
+              }}>
                   OR
               </Text>
+              </View>
+              <View style={styles.divider} />
+              </View>
+
               <Text style={styles.line}>
                 If you have a PMG account
             </Text>
@@ -63,7 +85,7 @@ const styles = StyleSheet.create({
     },
      minicontainer:{
      backgroundColor:"#ffffff",
-      marginTop: 90,
+      marginTop: 80,
       borderTopRightRadius: 32,
       borderTopLeftRadius: 32,
       height:780
@@ -74,24 +96,25 @@ const styles = StyleSheet.create({
       marginTop: 10
     },
     supa:{
-      fontSize:37,
+      fontSize:45,
       fontWeight:"700",
 
   },
   menu:{
-    fontSize:37,
+    fontSize:45,
     fontWeight:"700",
     color:"orange",
 },
 welc:{
-  fontWeight:"800",  
-  color:"gray",
+  fontWeight:"500",  
+  fontSize:17,
   alignSelf:"center",
-  marginTop:15,
+  marginTop:30,
 },
 filltext:{
 color:"gray",
 alignSelf:"center",
+fontSize: 15,
 marginTop:10,
 },
 form:{
@@ -104,9 +127,9 @@ form:{
   alignItems: "center",
   borderWidth : 1,
   borderColor: "#f2f0f0",
-  height: 50,
+  height: 58,
   borderRadius: 5,
-  padding: 10,
+  paddingLeft: 10,
   marginTop:15,
   marginLeft:15,
   marginRight:15,
@@ -118,7 +141,7 @@ form:{
   width: "100%",
   paddingLeft: 10,
   color: 'gray',
-  fontSize: 12,
+  fontSize: 13,
 },
 button: {
   backgroundColor: "#f7941d",
@@ -138,11 +161,15 @@ line:{
 marginTop:20,
 textAlign:'center',
 },
+divider:{
+  flex: 1,
+  height: 1,
+  backgroundColor: "#f2f0f0",
+},
 Gbutton: {
 padding: 12,
   borderRadius: 5,
   margin: 10,
-
   backgroundColor:"fff",
   borderWidth: 1,
   borderColor:"#f2f0f0",
