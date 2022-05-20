@@ -1,5 +1,10 @@
-import Resto from "./src/screens/Restaurant/Resto";
+import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./src/navigation/Tabs";
 
 export default function App() {
-  return <Resto />;
+  return (
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
+  );
 }
