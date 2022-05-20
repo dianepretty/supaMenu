@@ -5,8 +5,6 @@ import  SvgUri  from 'react-native-svg';
 import SearchBarComponent from "../components/SearchBarComponent";
 
 const ScanScreen = () =>{
-    // const [searchQuery, setSearchQuery] = React.useState('');
-    // const onChangeSearch = query => setSearchQuery(query);
     return(
         <View style={Styles.body}>
         <SearchBarComponent/>
