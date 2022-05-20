@@ -199,6 +199,6 @@ registerButt:{
       color: "#f9af55",
       alignSelf: "center",
       fontWeight:"bold",
-      marginTop: 20,
+      marginTop: 4
   }
 })

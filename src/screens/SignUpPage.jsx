@@ -96,27 +96,28 @@ const styles = StyleSheet.create({
       marginTop: 10
     },
     supa:{
-      fontSize:45,
+      fontSize:40,
       fontWeight:"700",
 
   },
   menu:{
-    fontSize:45,
+    fontSize:40,
     fontWeight:"700",
     color:"orange",
 },
 welc:{
-  fontWeight:"500",  
-  fontSize:17,
+  fontWeight:"500", 
+  fontSize:17, 
+  color:"gray",
   alignSelf:"center",
   marginTop:30,
 },
 filltext:{
-color:"gray",
-alignSelf:"center",
-fontSize: 15,
-marginTop:10,
-},
+  color:"gray",
+  alignSelf:"center",
+  fontSize: 15,
+  marginTop:10,
+  },
 form:{
   marginTop: 20,
   marginBottom:20,
@@ -127,7 +128,7 @@ form:{
   alignItems: "center",
   borderWidth : 1,
   borderColor: "#f2f0f0",
-  height: 58,
+  height: 60,
   borderRadius: 5,
   paddingLeft: 10,
   marginTop:15,
@@ -166,15 +167,17 @@ divider:{
   height: 1,
   backgroundColor: "#f2f0f0",
 },
-// Gbutton: {
-// padding: 20,
-//   borderRadius: 5,
-//   margin: 10,
-//   backgroundColor:"fff",
-//   borderWidth: 1,
-//   borderColor:"#f2f0f0",
-
-// },
+Gbutton: {
+  padding:10,
+    borderRadius: 5,
+    flexDirection:"row",
+    alignItems:"center",
+    margin: 10,
+    backgroundColor:"fff",
+    borderWidth: 1,
+    borderColor:"#f2f0f0",
+  
+  },
 
   GbuttonTitle: {
   color: "gray",
