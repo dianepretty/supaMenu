@@ -166,15 +166,15 @@ divider:{
   height: 1,
   backgroundColor: "#f2f0f0",
 },
-Gbutton: {
-padding: 12,
-  borderRadius: 5,
-  margin: 10,
-  backgroundColor:"fff",
-  borderWidth: 1,
-  borderColor:"#f2f0f0",
+// Gbutton: {
+// padding: 20,
+//   borderRadius: 5,
+//   margin: 10,
+//   backgroundColor:"fff",
+//   borderWidth: 1,
+//   borderColor:"#f2f0f0",
 
-},
+// },
 
   GbuttonTitle: {
   color: "gray",
