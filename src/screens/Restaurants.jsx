@@ -7,7 +7,7 @@ export default function Restaurants({ navigation }) {
       <Text style={styles.title}>Nearby Restaurant</Text>
       <View style={{ marginTop: 35 }}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Resto", {})}
+          onPress={() => navigation.navigate("Menu", {})}
           style={styles.resto}
         >
           <Image
