@@ -1,10 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../src/screens/HomeScreen';
-import CartScreen from '../src/screens/CartScreen';
-// import Menu from '../src/screens/Menu';
-import NotificationScreen from '../src/screens/NotificationScreen';
-import ScanScreen from '../src/screens/ScanScreen';
-import HistoryScreen from '../src/screens/HistoryScreen';
+import HomeScreen from '../screens/HomeScreen';
+import Restaurants from '../screens/Restaurant/index';
+import Restos from '../screens/Restaurant/Restos';
+import NotificationScreen from '../screens/NotificationScreen';
+import HistoryScreen from '../screens/HistoryScreen';
 import { StyleSheet} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 // import Icon from 'react-native-vector-icons/FontAwesome';
@@ -49,9 +48,9 @@ const Tabs = () =>{
         >
             <Tab.Screen name="Home" component={HomeScreen} options={{tabBarShowLabel:false}}/>
             <Tab.Screen name='Notification' component={NotificationScreen} options={{tabBarShowLabel:false}}/>
-            <Tab.Screen name='Scan' component={ScanScreen} options={{tabBarShowLabel:false}}/>
+            <Tab.Screen name='Scan' component={Restaurants} options={{tabBarShowLabel:false}}/>
             <Tab.Screen name='History' component={HistoryScreen} options={{tabBarShowLabel:false}}/>
-            <Tab.Screen name='Cart' component={CartScreen} options={{tabBarShowLabel:false}}/>
+            <Tab.Screen name='Cart' component={Restos} options={{tabBarShowLabel:false}}/>
         </Tab.Navigator>
     );
 }
