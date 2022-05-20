@@ -1,60 +1,58 @@
-import { Text, StyleSheet, View ,TextInput , TouchableOpacity} from 'react-native'
+import {  Text, StyleSheet, View ,TextInput , TouchableOpacity } from 'react-native'
 import React, { Component } from 'react'
 
-export default class LoginPage extends Component {
+export default class SignUpPage extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.minicontainer}>
-        <View style={styles.title}>
-        <Text style={styles.supa}>Supa</Text>
-        <Text style={styles.menu}>Menu</Text>
-        </View>
-        <Text style={styles.welc}>Welcome...</Text>
-        <Text style={styles.filltext}>Sign in to continue</Text>
-        <View style={styles.form}>
-          <View style={styles.inputGroup}>
-            <TextInput placeholder="Your Email" style={styles.input}/>
+        <View style={styles.container}>
+          <View style={styles.minicontainer}>
+          <View style={styles.title}>
+          <Text style={styles.supa}>Supa</Text>
+          <Text style={styles.menu}>Menu</Text>
           </View>
-          <View style={styles.inputGroup}>
-          <TextInput placeholder = "Password" style={styles.input} />
+          <Text style={styles.welc}>Welcome...</Text>
+          <Text style={styles.filltext}>Please fill in the information</Text>
+          <View style={styles.form}>
+            <View style={styles.inputGroup}>
+            <TextInput placeholder = "Full Name" style={styles.input}/>
         </View>
-        
-        <TouchableOpacity
-                title="Submit"
-                style={styles.button}
-                >
-                    <Text style={styles.buttonTitle}>
-                       Sign in
-                    </Text>
-            </TouchableOpacity>
-            <Text style={styles.line}>
-                OR
+        <View style={styles.inputGroup}>
+          <TextInput placeholder = "Phone Number" style={styles.input} />
+        </View>
+        <View style={styles.inputGroup}>
+         <TextInput placeholder = "Your Email" style={styles.input} />
+          </View>
+          
+          <TouchableOpacity
+                  title="Submit"
+                  style={styles.button}
+                  >
+                      <Text style={styles.buttonTitle}>
+                         Proceed
+                      </Text>
+              </TouchableOpacity>
+              <Text style={styles.line}>
+                  OR
+              </Text>
+              <Text style={styles.line}>
+                If you have a PMG account
             </Text>
-            <TouchableOpacity
-           style={styles.Gbutton}
-           >
-           <Text style = {styles.GbuttonTitle}>
-              Login with google
-           </Text>
-           </TouchableOpacity>
 
-           <TouchableOpacity
-           style={styles.Gbutton}
-           >
-           <Text style = {styles.GbuttonTitle}>
-               Login with facebook
-           </Text>
-           </TouchableOpacity>
-           <Text style={styles.forgotBut}>Forgot password?</Text>
-            <View style={styles.title}>
+             <TouchableOpacity
+             style={styles.button}
+             >
+             <Text style = {styles.buttonTitle}>
+                 Sign in 
+             </Text>
+             </TouchableOpacity>
+             <View style={styles.title}>
            <Text style={styles.registerButt}>Don't have an account ?</Text>
            <Text style={styles.registerBut}>Register</Text>
            </View>
+          </View>
+          </View>
         </View>
-        </View>
-      </View>
-    )
+      )
   }
 }
 
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
         height: 780
     },
      minicontainer:{
-     backgroundColor:"white",
+     backgroundColor:"#ffffff",
       marginTop: 90,
       borderTopRightRadius: 32,
       borderTopLeftRadius: 32,
@@ -164,10 +162,5 @@ registerButt:{
       color: "#f9af55",
       fontWeight:"bold"
   },
-   forgotBut: {
-      color: "#f9af55",
-      alignSelf: "center",
-      fontWeight:"bold",
-      marginTop: 20,
-  }
+
 })
