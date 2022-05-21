@@ -18,9 +18,7 @@ export default function Restaurants({ navigation }) {
           />
           <View style={styles.r_content}>
             <Text style={styles.r_name}>Choose Kigali</Text>
-            <Text style={{ fontSize: 16, marginTop: 8 }}>
-              World,African,Pizzeria,Coffee
-            </Text>
+            <Text style={styles.r_menu}>World,African,Pizzeria,Coffee</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {}} style={styles.resto}>
@@ -32,9 +30,7 @@ export default function Restaurants({ navigation }) {
           />
           <View style={styles.r_content}>
             <Text style={styles.r_name}>Choose Kigali</Text>
-            <Text style={{ fontSize: 16, marginTop: 8 }}>
-              World,African,Pizzeria,Coffee
-            </Text>
+            <Text style={styles.r_menu}>World,African,Pizzeria,Coffee</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -50,7 +46,12 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 30,
   },
-  title: { color: "#f9b461", fontWeight: "600", fontSize: 18, marginTop: 20 },
+  title: {
+    color: "#f9b461",
+    fontSize: 18,
+    marginTop: 20,
+    fontFamily: "DMSans_700Bold",
+  },
   image: {
     width: "25%",
     height: 80,
@@ -67,5 +68,6 @@ const styles = StyleSheet.create({
     width: "70%",
     marginLeft: "5%",
   },
-  r_name: { fontWeight: "bold", fontSize: 18, marginTop: 5 },
+  r_name: { fontSize: 18, marginTop: 5, fontFamily: "DMSans_700Bold" },
+  r_menu: { fontSize: 16, marginTop: 8, fontFamily: "DMSans_400Regular" },
 });

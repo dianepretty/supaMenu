@@ -8,7 +8,7 @@ const ScanScreen = () => {
       <SearchBarComponent />
       <Text style={Styles.scanText}>or</Text>
       <Image
-        source={require("../../assets/icons/qr-code-svgrepo-com.svg")}
+        source={require("../../assets/icons/qr-code-svgrepo-com.png")}
         style={Styles.scanPic}
       />
       <Text style={Styles.scanText}>Scan, Pay & Enjoy!</Text>
@@ -25,7 +25,7 @@ const Styles = StyleSheet.create({
   },
   scanText: {
     fontWeight: "bold",
-    fontFamily: "sans-serif",
+    fontFamily: "DMSans_400Regular",
     marginTop: 50,
     fontSize: 20,
   },
