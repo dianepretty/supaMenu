@@ -9,9 +9,9 @@ const Stack = createNativeStackNavigator();
 
 export default function HomeStack() {
   return (
-    <Stack.Navigator initialRouteName="Restaurants">
+    <Stack.Navigator initialRouteName="RestaurantsH">
       <Stack.Screen
-        name="Restaurants"
+        name="RestaurantsH"
         component={Restaurants}
         options={{
           headerTitle: (props) => <SearchBar {...props} />,
