@@ -1,29 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import {tailwind} from 'tailwind-rn';
-import Menu from './screens/Menu';
-import Payement from './screens/Payement';
-import RateUs from './screens/RateUs';
-import SignUp from './screens/SignUp';
-
+import React, { useState, useEffect } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./src/navigation/Tabs";
+import LandingPage from "./src/screens/LandingPage";
+import AuthStack from "./src/navigation/AuthStack";
 
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false);
+  const [auth, setAuth] = useState(false);
 
-  return (
-   <View >
-<Payement></Payement>
+  useEffect(() => {
+    setTimeout(() => {
+      setAppIsReady(true);
+    }, 3000);
+  }, []);
 
-   </View>
-      
-
+  return appIsReady ? (
+    <NavigationContainer>{auth ? <Tabs /> : <AuthStack />}</NavigationContainer>
+  ) : (
+    <LandingPage />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
