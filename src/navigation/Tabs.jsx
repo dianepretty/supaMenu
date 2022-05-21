@@ -54,7 +54,7 @@ const Tabs = () => {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={ScanScreen}
         options={{ tabBarShowLabel: false }}
       />
       <Tab.Screen
