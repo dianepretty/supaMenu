@@ -5,9 +5,9 @@ import SignUpPage from "../screens/SignUpPage";
 
 const Stack = createNativeStackNavigator();
 
-export default function AuthStack() {
+export default function AuthStack({setAuth}) {
   return (
-    <Stack.Navigator initialRouteName="Restaurants">
+    <Stack.Navigator initialRouteName="Login">
       <Stack.Screen
         name="Login"
         component={LoginPage}

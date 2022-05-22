@@ -5,10 +5,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import React, { Component } from "react";
+import React from "react";
 import { MaterialCommunityIcons, AntDesign, Zocial } from "@expo/vector-icons";
-export default class LoginPage extends Component {
-  render() {
+import { useNavigation } from "@react-navigation/native";
+export default function LoginPage() {
+  const navigation = useNavigation()
     return (
       <View style={styles.container}>
         <View style={styles.minicontainer}>
@@ -29,10 +30,10 @@ export default class LoginPage extends Component {
             </View>
             <View style={styles.inputGroup}>
               <AntDesign name="lock1" size={25} color="gray" />
-              <TextInput placeholder="Password" style={styles.input} />
+              <TextInput secureTextEntry={true} placeholder="Password" style={styles.input} />
             </View>
 
-            <TouchableOpacity title="Submit" style={styles.button}>
+            <TouchableOpacity onPress={()=>navigation.navigate("Home" , {screen : "Home"})} title="Submit" style={styles.button}>
               <Text style={styles.buttonTitle}>Sign in</Text>
             </TouchableOpacity>
 
@@ -78,14 +79,16 @@ export default class LoginPage extends Component {
             <Text style={styles.forgotBut}>Forgot password?</Text>
             <View style={styles.title}>
               <Text style={styles.registerButt}>Don't have an account ?</Text>
-              <Text style={styles.registerBut}>Register</Text>
+             <TouchableOpacity onPress={()=>navigation.navigate("SignUp")}>
+             <Text style={styles.registerBut}>Register</Text>
+             </TouchableOpacity>
             </View>
           </View>
         </View>
       </View>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -94,9 +97,9 @@ const styles = StyleSheet.create({
   },
   minicontainer: {
     backgroundColor: "white",
-    marginTop: 80,
-    borderTopRightRadius: 32,
-    borderTopLeftRadius: 32,
+    marginTop: 65,
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
     height: 780,
   },
   title: {
@@ -105,11 +108,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   supa: {
-    fontSize: 45,
+    fontSize: 38,
     fontWeight: "700",
   },
   menu: {
-    fontSize: 45,
+    fontSize: 38,
     fontWeight: "700",
     color: "orange",
   },
@@ -118,16 +121,15 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "gray",
     alignSelf: "center",
-    marginTop: 30,
+    marginTop: 12,
   },
   filltext: {
     color: "gray",
     alignSelf: "center",
     fontSize: 15,
-    marginTop: 10,
+    marginTop: 5,
   },
   form: {
-    marginTop: 20,
     marginBottom: 20,
   },
 
@@ -167,7 +169,6 @@ const styles = StyleSheet.create({
   },
   line: {
     color: "gray",
-    marginTop: 20,
     textAlign: "center",
   },
   divider: {
