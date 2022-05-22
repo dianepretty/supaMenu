@@ -24,12 +24,12 @@ export default function LoginPage() {
               <MaterialCommunityIcons
                 name="email-outline"
                 size={24}
-                color="gray"
+                color="#9098b1"
               />
               <TextInput placeholder="Your Email" style={styles.input} />
             </View>
             <View style={styles.inputGroup}>
-              <AntDesign name="lock1" size={25} color="gray" />
+              <AntDesign name="lock1" size={25} color="#9098b1" />
               <TextInput secureTextEntry={true} placeholder="Password" style={styles.input} />
             </View>
 
@@ -52,7 +52,7 @@ export default function LoginPage() {
                   style={{
                     width: 70,
                     fontWeight: "bold",
-                    color: "gray",
+                    color: "#9098b1",
                     textAlign: "center",
                   }}
                 >
@@ -63,20 +63,21 @@ export default function LoginPage() {
             </View>
 
             <View style={styles.Gbutton}>
-              <AntDesign name="google" size={24} color="grey" />
+              <AntDesign name="google" size={24} color="gray" />
               <TouchableOpacity>
                 <Text style={styles.GbuttonTitle}>Login with Google</Text>
               </TouchableOpacity>
             </View>
 
             <View style={styles.Gbutton}>
-              <Zocial name="facebook" size={24} color="grey" />
+              <Zocial name="facebook" size={24} color="gray" />
               <TouchableOpacity>
                 <Text style={styles.GbuttonTitle}>Login with Facebook</Text>
               </TouchableOpacity>
             </View>
-
+             <TouchableOpacity>
             <Text style={styles.forgotBut}>Forgot password?</Text>
+            </TouchableOpacity>
             <View style={styles.title}>
               <Text style={styles.registerButt}>Don't have an account ?</Text>
              <TouchableOpacity onPress={()=>navigation.navigate("SignUp")}>
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
   },
   welc: {
     fontWeight: "500",
-    fontSize: 17,
+    fontSize: 15,
     color: "gray",
     alignSelf: "center",
     marginTop: 12,
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
   filltext: {
     color: "gray",
     alignSelf: "center",
-    fontSize: 15,
+    fontSize: 14,
     marginTop: 5,
   },
   form: {
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     paddingLeft: 10,
-    color: "gray",
+    color: "#9098b1",
     fontSize: 13,
   },
   button: {
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
 
   GbuttonTitle: {
     color: "#9098b1",
-    marginLeft: 90,
+    marginLeft: 68,
     fontSize: 14,
     textAlign: "center",
     fontWeight: "bold",

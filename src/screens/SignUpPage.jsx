@@ -26,18 +26,18 @@ export default function SignUpPage(){
           <Text style={styles.filltext}>Please fill in the information</Text>
           <View style={styles.form}>
             <View style={styles.inputGroup}>
-              <Ionicons name="person-outline" size={25} color="gray" />
+              <Ionicons name="person-outline" size={25} color="#9098b1" />
               <TextInput placeholder="Full Name" style={styles.input} />
             </View>
             <View style={styles.inputGroup}>
-              <MaterialIcons name="smartphone" size={24} color="gray" />
+              <MaterialIcons name="smartphone" size={24} color="#9098b1" />
               <TextInput placeholder="Phone Number" style={styles.input} />
             </View>
             <View style={styles.inputGroup}>
               <MaterialCommunityIcons
                 name="email-outline"
                 size={24}
-                color="gray"
+                color="#9098b1"
               />
               <TextInput placeholder="Your Email" style={styles.input} />
             </View>
@@ -61,7 +61,7 @@ export default function SignUpPage(){
                   style={{
                     width: 70,
                     fontWeight: "bold",
-                    color: "gray",
+                    color: "#9098b1",
                     textAlign: "center",
                   }}
                 >
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
   welc: {
     fontWeight: "500",
-    fontSize: 17,
+    fontSize: 15,
     color: "gray",
     alignSelf: "center",
     marginTop: 12,
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   filltext: {
     color: "gray",
     alignSelf: "center",
-    fontSize: 15,
+    fontSize: 14,
     marginTop: 5,
   },
   form: {
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   },
   line: {
     color: "gray",
-    marginTop: 20,
+    marginTop: 10,
     textAlign: "center",
   },
   Gbutton: {
