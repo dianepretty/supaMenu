@@ -8,6 +8,7 @@ import {
 import React, { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const RateUs = () => {
   const [s1, setS1] = useState("white");

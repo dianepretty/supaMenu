@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { View, TextInput } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { TouchableWithoutFeedback, Text } from "react-native";
 
-const SearchBar = () => {
-  const [term, setTerm] = useState("");
+const SearchBar = ({ keyword }) => {
+  const navigation = useNavigation();
   return (
-    <View>
-      <TextInput placeholder="Search..." onChangeText={setTerm} value={term} />
-    </View>
+    <TouchableWithoutFeedback onPress={() => navigation.navigate("Home")}>
+      <Text style={{ color: keyword ? "black" : "gray" }}>
+        {keyword ? keyword : "Search..."}
+      </Text>
+    </TouchableWithoutFeedback>
   );
 };
 

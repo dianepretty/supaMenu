@@ -5,107 +5,118 @@ import {
   TouchableOpacity,
   StatusBar,
 } from "react-native";
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Entypo } from "@expo/vector-icons";
+import { getMenuItems } from "../services/RestaurantService";
+import { useNavigation } from "@react-navigation/native";
 
-export class Menu extends Component {
-  render() {
-    return (
-      <View style={{ backgroundColor: "black", height: "100%" }}>
-        <StatusBar
-          backgroundColor="black"
-          barStyle="light-content"
-          hidden={false}
-          // translucent = {true}
-        />
+export default function Menu({ route }) {
+  const [provider, setProvider] = useState({ name: "none" });
+  const [items, setItems] = useState([]);
 
-        <View style={{ marginTop: 50 }}></View>
-        <Text
-          style={{
-            fontSize: 20,
-            color: "orange",
-            fontWeight: "bold",
-            textAlign: "center",
-          }}
-        >
-          Choose Kigali
-        </Text>
+  const navigation = useNavigation();
 
-        <View style={styles.flex}>
-          <View>
-            <View style={{ flexDirection: "row" }}>
-              <Entypo
-                name="funnel"
-                size={24}
-                color="orange"
-                style={{ textAlign: "center", marginBottom: 10 }}
-              />
-              <Text
-                style={{
-                  color: "white",
-                  fontSize: 20,
-                  marginLeft: 10,
-                  fontWeight: "200",
-                }}
-              >
-                N8
-              </Text>
-            </View>
+  useEffect(() => {
+    if (route.params) {
+      if (route.params.provider) {
+        setProvider(route.params.provider);
+      }
+    }
+    getMenuItems()
+      .then((res) => setItems(res.content))
+      .catch((err) => console.log(err));
+  }, [route.params]);
 
-            <Text style={{ color: "white", fontSize: 19 }}>Ordered</Text>
+  return (
+    <View style={{ backgroundColor: "black", height: "100%" }}>
+      <StatusBar
+        backgroundColor="black"
+        barStyle="light-content"
+        hidden={false}
+        // translucent = {true}
+      />
+
+      <View style={{ marginTop: 50 }}></View>
+      <Text
+        style={{
+          fontSize: 20,
+          color: "orange",
+          fontWeight: "bold",
+          textAlign: "center",
+        }}
+      >
+        {provider.name}
+      </Text>
+
+      <View style={styles.flex}>
+        <View>
+          <View style={{ flexDirection: "row" }}>
+            <Entypo
+              name="funnel"
+              size={24}
+              color="orange"
+              style={{ textAlign: "center", marginBottom: 10 }}
+            />
+            <Text
+              style={{
+                color: "white",
+                fontSize: 20,
+                marginLeft: 10,
+                fontWeight: "200",
+              }}
+            >
+              N8
+            </Text>
           </View>
-          <View style={styles.line}></View>
-          <View>
-            <TouchableOpacity>
-              <Entypo
-                name="hand"
-                size={24}
-                color="orange"
-                style={{ textAlign: "center", marginBottom: 10 }}
-              />
-            </TouchableOpacity>
 
-            <Text style={{ color: "white", fontSize: 19 }}>Call Waiter</Text>
-          </View>
+          <Text style={{ color: "white", fontSize: 19 }}>Ordered</Text>
         </View>
-
-        <Text
-          style={{
-            color: "orange",
-            fontSize: 22,
-            fontWeight: "500",
-            textAlign: "center",
-            marginTop: 60,
-          }}
-        >
-          menu
-        </Text>
-        <View style={styles.links}>
-          <TouchableOpacity style={styles.height}>
-            <Text style={styles.white1}>Appetizer</Text>
-            <Entypo name="chevron-small-right" size={24} color="white" />
+        <View style={styles.line}></View>
+        <View>
+          <TouchableOpacity>
+            <Entypo
+              name="hand"
+              size={24}
+              color="orange"
+              style={{ textAlign: "center", marginBottom: 10 }}
+            />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.height}>
-            <Text style={styles.white1}>Starter</Text>
-            <Entypo name="chevron-small-right" size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.height}>
-            <Text style={styles.white1}>Main</Text>
-            <Entypo name="chevron-small-right" size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.height}>
-            <Text style={styles.white1}>Desert</Text>
-            <Entypo name="chevron-small-right" size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.height}>
-            <Text style={styles.white1}>Drink</Text>
-            <Entypo name="chevron-small-right" size={24} color="white" />
-          </TouchableOpacity>
+          <Text style={{ color: "white", fontSize: 19 }}>Call Waiter</Text>
         </View>
       </View>
-    );
-  }
+
+      <Text
+        style={{
+          color: "orange",
+          fontSize: 22,
+          fontWeight: "500",
+          textAlign: "center",
+          marginTop: 60,
+        }}
+      >
+        Menu
+      </Text>
+      <View style={styles.links}>
+        {items.length > 0 ? (
+          items.map((item) => (
+            <TouchableOpacity
+              style={styles.height}
+              key={item.id}
+              onPress={() =>
+                navigation.navigate("Cart", { item, goto: "menu" })
+              }
+            >
+              <Text style={styles.white1}>{item.name}</Text>
+              <Entypo name="chevron-small-right" size={24} color="white" />
+            </TouchableOpacity>
+          ))
+        ) : (
+          <Text>Loading Menu</Text>
+        )}
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -141,5 +152,3 @@ const styles = StyleSheet.create({
     fontSize: 19,
   },
 });
-
-export default Menu;

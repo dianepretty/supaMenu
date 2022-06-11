@@ -1,8 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function Cart({ navigation }) {
+export default function Cart({ navigation, item }) {
+  const [items, setItems] = useState([]);
+
+  const changeQuantity = (index, op) => {
+    let items_temp = [...items];
+    items_temp[index].quantity += op;
+    if (items_temp[index].quantity < 1) {
+      items_temp.splice(index, 1);
+    }
+    setItems(items_temp);
+  };
+
+  const getTotal = () => {
+    let total = 0;
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].quantity * items[i].unitPrice;
+    }
+    return formatPrice(total);
+  };
+
+  const formatPrice = (price) => {
+    let n_price = price.toString();
+    for (let p = n_price.length; p > 2; p--) {
+      if (p % 3 == 0) {
+        n_price = n_price.slice(0, p - 1) + "," + n_price.slice(p - 1);
+      }
+    }
+    return n_price;
+  };
+
+  useEffect(() => {
+    if (item) {
+      let index = items.findIndex((x) => x.id === item.id);
+      if (index > -1) {
+        let items_temp = [...items];
+        items_temp[index].quantity += 1;
+        setItems(items_temp);
+      } else {
+        setItems(items.concat({ ...item, quantity: 1 }));
+      }
+    }
+  }, [item]);
+
   return (
     <View style={styles.container}>
       <View style={{ paddingRight: 30 }}>
@@ -10,38 +52,49 @@ export default function Cart({ navigation }) {
         <Text style={styles.title}>Drinks</Text>
       </View>
       <View style={{ marginTop: 10 }}>
-        <View onPress={() => {}} style={styles.resto}>
-          <Image
-            style={styles.image}
-            source={{
-              uri: "https://ditech.media/wp-content/uploads/2020/05/pancakes.jpg",
-            }}
-          />
-          <View style={styles.r_content}>
-            <Text style={styles.r_menu}>World,African,Pizzeria,Coffee</Text>
-            <Text style={{ fontSize: 17, fontFamily: "DMSans_700Bold" }}>
-              Tom Yummy - 12.5
-            </Text>
-            <Text style={styles.price}>Frw 5,000</Text>
-            <View style={styles.counter}>
-              <TouchableOpacity
-                style={{ paddingHorizontal: 2 }}
-                onPress={() => {}}
-              >
-                <AntDesign name="minus" size={16} color="#f9b461" />
-              </TouchableOpacity>
-              <Text style={{ fontSize: 16, paddingHorizontal: 6 }}>2</Text>
-              <TouchableOpacity
-                style={{ paddingHorizontal: 2 }}
-                onPress={() => {}}
-              >
-                <AntDesign name="plus" size={16} color="#f9b461" />
-              </TouchableOpacity>
+        {items.length > 0 ? (
+          items.map((item, index) => (
+            <View onPress={() => {}} style={styles.resto} key={item.id + index}>
+              <Image
+                style={styles.image}
+                source={{
+                  uri: "https://ditech.media/wp-content/uploads/2020/05/pancakes.jpg",
+                }}
+              />
+              <View style={styles.r_content}>
+                <Text style={styles.r_menu}>{item.name}</Text>
+                <Text style={{ fontSize: 17, fontFamily: "DMSans_700Bold" }}>
+                  {item.description} - {item.id}??
+                </Text>
+                <Text style={styles.price}>Frw {item.unitPrice}</Text>
+                <View style={styles.counter}>
+                  <TouchableOpacity
+                    style={{ paddingHorizontal: 2 }}
+                    onPress={() => changeQuantity(index, -1)}
+                  >
+                    <AntDesign name="minus" size={16} color="#f9b461" />
+                  </TouchableOpacity>
+                  <Text style={{ fontSize: 16, paddingHorizontal: 6 }}>
+                    {item.quantity}
+                  </Text>
+                  <TouchableOpacity
+                    style={{ paddingHorizontal: 2 }}
+                    onPress={() => changeQuantity(index, 1)}
+                  >
+                    <AntDesign name="plus" size={16} color="#f9b461" />
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
-          </View>
-        </View>
+          ))
+        ) : (
+          <Text>Cart is empty</Text>
+        )}
       </View>
-      <TouchableOpacity style={styles.details}>
+      <TouchableOpacity
+        style={styles.details}
+        onPress={() => navigation.navigate("Menu")}
+      >
         <Text style={[styles.text, { fontSize: 16 }]}>more drinks</Text>
         <AntDesign
           name="arrowright"
@@ -52,7 +105,7 @@ export default function Cart({ navigation }) {
       </TouchableOpacity>
       <View style={styles.total}>
         <Text style={[{ fontSize: 20 }, styles.text]}>Total</Text>
-        <Text style={[{ fontSize: 20 }, styles.text]}>Frw 16,000</Text>
+        <Text style={[{ fontSize: 20 }, styles.text]}>Frw {getTotal()}</Text>
       </View>
       <TouchableOpacity
         style={styles.ibtn}

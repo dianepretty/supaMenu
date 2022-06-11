@@ -8,17 +8,32 @@ import RateUs from "../screens/RateUs";
 
 const Stack = createNativeStackNavigator();
 
-export default function CartStack() {
+export default function CartStack(parentProps) {
   return (
     <Stack.Navigator initialRouteName="CartH">
       <Stack.Screen
         name="CartH"
-        component={Cart}
         options={{
           headerTitle: () => null,
-          headerLeft: () => <Left color="#f9b461" />,
+          headerLeft: () => (
+            <Left
+              color="#f9b461"
+              goto={
+                parentProps.route.params ? parentProps.route.params.goto : null
+              }
+            />
+          ),
         }}
-      />
+      >
+        {(props) => (
+          <Cart
+            {...props}
+            item={
+              parentProps.route.params ? parentProps.route.params.item : null
+            }
+          />
+        )}
+      </Stack.Screen>
       <Stack.Screen
         name="Payment"
         component={Payement}

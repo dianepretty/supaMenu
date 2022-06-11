@@ -7,17 +7,35 @@ import Menu from "../screens/Menu";
 
 const Stack = createNativeStackNavigator();
 
-export default function HomeStack() {
+export default function HomeStack(parentProps) {
   return (
     <Stack.Navigator initialRouteName="RestaurantsH">
       <Stack.Screen
         name="RestaurantsH"
-        component={Restaurants}
         options={{
-          headerTitle: (props) => <SearchBar {...props} />,
+          headerTitle: (props) => (
+            <SearchBar
+              {...props}
+              keyword={
+                parentProps.route.params ? parentProps.route.params.term : ""
+              }
+            />
+          ),
           headerLeft: () => <Left />,
         }}
-      />
+      >
+        {(props) => (
+          <Restaurants
+            {...props}
+            data={
+              parentProps.route.params ? parentProps.route.params.data : null
+            }
+            term={
+              parentProps.route.params ? parentProps.route.params.term : null
+            }
+          />
+        )}
+      </Stack.Screen>
       <Stack.Screen
         name="Menu"
         component={Menu}

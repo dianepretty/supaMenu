@@ -11,7 +11,7 @@ import {
 } from "@expo-google-fonts/dev";
 
 export default function App() {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   const [fontsLoaded] = useFonts({
     DMSans_400Regular,
     DMSans_500Medium,

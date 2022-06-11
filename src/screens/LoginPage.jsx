@@ -9,87 +9,94 @@ import React from "react";
 import { MaterialCommunityIcons, AntDesign, Zocial } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 export default function LoginPage() {
-  const navigation = useNavigation()
-    return (
-      <View style={styles.container}>
-        <View style={styles.minicontainer}>
-          <View style={styles.title}>
-            <Text style={styles.supa}>Supa</Text>
-            <Text style={styles.menu}>Menu</Text>
+  const navigation = useNavigation();
+  return (
+    <View style={styles.container}>
+      <View style={styles.minicontainer}>
+        <View style={styles.title}>
+          <Text style={styles.supa}>Supa</Text>
+          <Text style={styles.menu}>Menu</Text>
+        </View>
+        <Text style={styles.welc}>Welcome...</Text>
+        <Text style={styles.filltext}>Sign in to continue</Text>
+        <View style={styles.form}>
+          <View style={styles.inputGroup}>
+            <MaterialCommunityIcons
+              name="email-outline"
+              size={24}
+              color="#9098b1"
+            />
+            <TextInput placeholder="Your Email" style={styles.input} />
           </View>
-          <Text style={styles.welc}>Welcome...</Text>
-          <Text style={styles.filltext}>Sign in to continue</Text>
-          <View style={styles.form}>
-            <View style={styles.inputGroup}>
-              <MaterialCommunityIcons
-                name="email-outline"
-                size={24}
-                color="#9098b1"
-              />
-              <TextInput placeholder="Your Email" style={styles.input} />
-            </View>
-            <View style={styles.inputGroup}>
-              <AntDesign name="lock1" size={25} color="#9098b1" />
-              <TextInput secureTextEntry={true} placeholder="Password" style={styles.input} />
-            </View>
+          <View style={styles.inputGroup}>
+            <AntDesign name="lock1" size={25} color="#9098b1" />
+            <TextInput
+              secureTextEntry={true}
+              placeholder="Password"
+              style={styles.input}
+            />
+          </View>
 
-            <TouchableOpacity onPress={()=>navigation.navigate("Home" , {screen : "Home"})} title="Submit" style={styles.button}>
-              <Text style={styles.buttonTitle}>Sign in</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Home")}
+            title="Submit"
+            style={styles.button}
+          >
+            <Text style={styles.buttonTitle}>Sign in</Text>
+          </TouchableOpacity>
+
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              paddingVertical: 4,
+              paddingHorizontal: 16,
+              width: "100%",
+            }}
+          >
+            <View style={styles.divider} />
+            <View>
+              <Text
+                style={{
+                  width: 70,
+                  fontWeight: "bold",
+                  color: "#9098b1",
+                  textAlign: "center",
+                }}
+              >
+                OR
+              </Text>
+            </View>
+            <View style={styles.divider} />
+          </View>
+
+          <View style={styles.Gbutton}>
+            <AntDesign name="google" size={24} color="gray" />
+            <TouchableOpacity>
+              <Text style={styles.GbuttonTitle}>Login with Google</Text>
             </TouchableOpacity>
+          </View>
 
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                paddingVertical: 4,
-                paddingHorizontal: 16,
-                width: "100%",
-              }}
-            >
-              <View style={styles.divider} />
-              <View>
-                <Text
-                  style={{
-                    width: 70,
-                    fontWeight: "bold",
-                    color: "#9098b1",
-                    textAlign: "center",
-                  }}
-                >
-                  OR
-                </Text>
-              </View>
-              <View style={styles.divider} />
-            </View>
-
-            <View style={styles.Gbutton}>
-              <AntDesign name="google" size={24} color="gray" />
-              <TouchableOpacity>
-                <Text style={styles.GbuttonTitle}>Login with Google</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.Gbutton}>
-              <Zocial name="facebook" size={24} color="gray" />
-              <TouchableOpacity>
-                <Text style={styles.GbuttonTitle}>Login with Facebook</Text>
-              </TouchableOpacity>
-            </View>
-             <TouchableOpacity>
+          <View style={styles.Gbutton}>
+            <Zocial name="facebook" size={24} color="gray" />
+            <TouchableOpacity>
+              <Text style={styles.GbuttonTitle}>Login with Facebook</Text>
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity>
             <Text style={styles.forgotBut}>Forgot password?</Text>
+          </TouchableOpacity>
+          <View style={styles.title}>
+            <Text style={styles.registerButt}>Don't have an account ?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+              <Text style={styles.registerBut}>Register</Text>
             </TouchableOpacity>
-            <View style={styles.title}>
-              <Text style={styles.registerButt}>Don't have an account ?</Text>
-             <TouchableOpacity onPress={()=>navigation.navigate("SignUp")}>
-             <Text style={styles.registerBut}>Register</Text>
-             </TouchableOpacity>
-            </View>
           </View>
         </View>
       </View>
-    );
-  }
-
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {

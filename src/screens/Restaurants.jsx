@@ -1,38 +1,51 @@
 import { StatusBar } from "expo-status-bar";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { getProviders } from "../services/RestaurantService";
 
-export default function Restaurants({ navigation }) {
+export default function Restaurants({ navigation, data, term }) {
+  const [providers, setProviders] = useState([]);
+  useEffect(() => {
+    if (data && term) {
+      setProviders([...data.content]);
+    } else {
+      getProviders(0)
+        .then((res) => setProviders([...res.content]))
+        .catch((err) => console.log(err));
+    }
+  }, [data]);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Nearby Restaurant</Text>
       <View style={{ marginTop: 35 }}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Menu", {})}
-          style={styles.resto}
-        >
-          <Image
-            style={styles.image}
-            source={{
-              uri: "https://ditech.media/wp-content/uploads/2020/05/pancakes.jpg",
-            }}
-          />
-          <View style={styles.r_content}>
-            <Text style={styles.r_name}>Choose Kigali</Text>
-            <Text style={styles.r_menu}>World,African,Pizzeria,Coffee</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}} style={styles.resto}>
-          <Image
-            style={styles.image}
-            source={{
-              uri: "https://ditech.media/wp-content/uploads/2020/05/pancakes.jpg",
-            }}
-          />
-          <View style={styles.r_content}>
-            <Text style={styles.r_name}>Choose Kigali</Text>
-            <Text style={styles.r_menu}>World,African,Pizzeria,Coffee</Text>
-          </View>
-        </TouchableOpacity>
+        {providers.length > 0 ? (
+          providers.map((provider) => (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Menu", {
+                  provider: { name: provider.name, id: provider.id },
+                })
+              }
+              style={styles.resto}
+              key={provider.id}
+            >
+              <Image
+                style={styles.image}
+                source={{
+                  uri: "https://ditech.media/wp-content/uploads/2020/05/pancakes.jpg",
+                }}
+              />
+              <View style={styles.r_content}>
+                <Text style={styles.r_name}>{provider.name}</Text>
+                <Text style={styles.r_menu}>
+                  {provider.serviceCategory.name}, {provider.address}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          ))
+        ) : (
+          <Text>No match found</Text>
+        )}
       </View>
       <StatusBar style="auto" />
     </View>

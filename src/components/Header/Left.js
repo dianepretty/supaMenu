@@ -3,11 +3,16 @@ import { TouchableOpacity, View, StyleSheet } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Left({ onPress, color }) {
+export default function Left({ color, goto }) {
   const navigation = useNavigation();
+  const goBack = () => {
+    // if (goto == "menu") navigation.navigate("Menu");
+    if (goto === "menu") navigation.navigate("Menu");
+    else navigation.goBack();
+  };
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity onPress={goBack}>
         <Entypo
           name="chevron-left"
           size={24}

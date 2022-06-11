@@ -9,6 +9,7 @@ export default class SearchBarComponent extends React.Component {
 
   updateSearch = (search) => {
     this.setState({ search });
+    this.props.setTerm(search);
   };
 
   render() {
@@ -23,6 +24,7 @@ export default class SearchBarComponent extends React.Component {
         round
         onCancel={this.props.onCancel}
         onClear={this.props.onClear}
+        onBlur={() => this.props.search()}
         containerStyle={styles.containerStyle}
         inputContainerStyle={styles.inContainerStyle}
         style={styles.searchStyles}
