@@ -8,6 +8,7 @@ import {
   Image,
   Button,
   ScrollView,
+  Alert,
 } from "react-native";
 import React, { Component, useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -18,6 +19,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 const Payement = () => {
+  const navigation = useNavigation();
   const [credit, setCredit] = useState({
     color: "black",
     bg: "white",
@@ -34,9 +36,12 @@ const Payement = () => {
 
 
   const payMethod =async(method) => {
+    navigation.goBack();
+    Alert.alert("payement initiated, thanks");
+
     const data={
-      "msisdn": "string",
-      "orderInfo": 7,
+      "msisdn": "0791176727",
+      "orderInfo": 303,
       "regChannel": "USSD",
       "telecom": "MTN"
     }
@@ -53,14 +58,14 @@ const Payement = () => {
    })
     .then(function (response) {
   
-      console.log(response.data);
+      // console.log(response.data);
     })
     .catch(function (error) {
-console.log("error hrere", error.response.data);
+// console.log("error hrere", error.response.data);
     });
   };
 
-  const navigation = useNavigation();
+
 
   return (
 

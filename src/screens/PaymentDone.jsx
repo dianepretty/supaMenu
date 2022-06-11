@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { CommonActions, useNavigation } from '@react-navigation/native'
 
-export default function PaymentDone({ navigation }) {
+export default function PaymentDone({  }) {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require("../../images/donuts.png")} />
