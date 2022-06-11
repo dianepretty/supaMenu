@@ -4,11 +4,39 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Alert 
 } from "react-native";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { MaterialCommunityIcons, AntDesign, Zocial } from "@expo/vector-icons";
-export default class LoginPage extends Component {
-  render() {
+import axios from "axios";
+import { Link } from "@react-navigation/native";
+import SignUpPage from "./SignUpPage";
+
+const LoginPage=()=> {
+
+  const [email,setEmail]=useState("");
+  const [pass,setPass]=useState("");
+ 
+  const base="http://196.223.240.154:8099/supapp";
+
+
+
+  const log=async()=>{
+
+ 
+    await axios.post(`${base}/api/auth/signin`, {
+      login: email,
+      password: pass
+    })
+    .then(function (response) {
+      Alert.alert("loged in successfuly");
+      console.log(response.data);
+    })
+    .catch(function (error) {
+    Alert.alert("Check your credecials");
+    });
+  }
+
     return (
       <View style={styles.container}>
         <View style={styles.minicontainer}>
@@ -25,14 +53,14 @@ export default class LoginPage extends Component {
                 size={24}
                 color="gray"
               />
-              <TextInput placeholder="Your Email" style={styles.input} />
+              <TextInput  defaultValue={email} onChangeText={newEmail=>setEmail(newEmail)}  style={styles.input} />
             </View>
             <View style={styles.inputGroup}>
               <AntDesign name="lock1" size={25} color="gray" />
-              <TextInput placeholder="Password" style={styles.input} />
+              <TextInput defaultValue={pass} secureTextEntry={true} onChangeText={newPass=>setPass(newPass)} style={styles.input} />
             </View>
 
-            <TouchableOpacity title="Submit" style={styles.button}>
+            <TouchableOpacity onPress={()=>log()} title="Submit" style={styles.button}>
               <Text style={styles.buttonTitle}>Sign in</Text>
             </TouchableOpacity>
 
@@ -74,18 +102,20 @@ export default class LoginPage extends Component {
                 <Text style={styles.GbuttonTitle}>Login with Facebook</Text>
               </TouchableOpacity>
             </View>
-
             <Text style={styles.forgotBut}>Forgot password?</Text>
             <View style={styles.title}>
               <Text style={styles.registerButt}>Don't have an account ?</Text>
+              <Link to={{screen:SignUpPage}}>
               <Text style={styles.registerBut}>Register</Text>
+              </Link>
             </View>
           </View>
         </View>
       </View>
     );
   }
-}
+
+  export default LoginPage;
 
 const styles = StyleSheet.create({
   container: {

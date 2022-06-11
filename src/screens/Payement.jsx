@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   Button,
+  ScrollView,
 } from "react-native";
 import React, { Component, useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -36,7 +37,8 @@ const Payement = () => {
   const navigation = useNavigation();
 
   return (
-    <View>
+
+    <ScrollView>
       <StatusBar
         backgroundColor="white"
         barStyle="dark-content"
@@ -262,7 +264,7 @@ const Payement = () => {
         />
         <Text style={styles.text}>Pay for the order</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
