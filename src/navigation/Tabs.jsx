@@ -3,13 +3,22 @@ import NotificationScreen from "../screens/NotificationScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 import { StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import Restaurants from "../screens/Restaurants";
-import Cart from "../screens/Cart";
 import ScanScreen from "../screens/ScanScreen";
 import HomeStack from "./HomeStack";
 import CartStack from "./CartStack";
-import HomeScreen from "../screens/HomeScreen";
 // import Icon from 'react-native-vector-icons/FontAwesome';
+
+const getTabBarVisibility = (route) => {
+  const routeName = route.state
+    ? route.state.routes[route.state.index].name
+    : "";
+
+  if (routeName === "PaymentDone") {
+    return false;
+  }
+
+  return true;
+};
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +36,7 @@ const Tabs = () => {
             iconName = focused
               ? "ios-notifications"
               : "ios-notifications-outline";
-          } else if (route.name === "Scan") {
+          } else if (route.name === "Restaurants") {
             iconName = focused ? "ios-scan" : "ios-scan-outline";
           } else if (route.name === "History") {
             iconName = focused ? "ios-time" : "ios-time-outline";
@@ -76,6 +85,9 @@ const Tabs = () => {
         name="Cart"
         component={CartStack}
         options={{ tabBarShowLabel: false }}
+        // options={({ route }) => ({
+        //   tabBarVisible: getTabBarVisibility(route),
+        // })}
       />
     </Tab.Navigator>
   );

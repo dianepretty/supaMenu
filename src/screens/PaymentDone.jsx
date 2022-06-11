@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function PaymentDone() {
+export default function PaymentDone({ navigation }) {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require("../../images/donuts.png")} />
@@ -12,7 +12,15 @@ export default function PaymentDone() {
         registered email
       </Text>
       <TouchableOpacity style={styles.details}>
-        <Text style={{ fontSize: 18, color: "orange" }}>Check Details</Text>
+        <Text
+          style={{
+            fontSize: 18,
+            color: "orange",
+            fontFamily: "DMSans_500Medium",
+          }}
+        >
+          Check Details
+        </Text>
         <AntDesign
           name="arrowright"
           size={20}
@@ -23,11 +31,26 @@ export default function PaymentDone() {
       <TouchableOpacity style={styles.ibtn}>
         <Text style={styles.ibtn_text}>Download Invoice</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{ flexDirection: "row", marginTop: 5 }}>
-        <Text style={{ color: "white", fontSize: 35, fontWeight: "bold" }}>
+      <TouchableOpacity
+        style={{ flexDirection: "row", marginTop: 5 }}
+        onPress={() => navigation.navigate("RateUs")}
+      >
+        <Text
+          style={{
+            color: "white",
+            fontSize: 35,
+            fontFamily: "DMSans_500Medium",
+          }}
+        >
           Supa
         </Text>
-        <Text style={{ color: "orange", fontSize: 35, fontWeight: "bold" }}>
+        <Text
+          style={{
+            color: "orange",
+            fontSize: 35,
+            fontFamily: "DMSans_500Medium",
+          }}
+        >
           Menu
         </Text>
       </TouchableOpacity>
@@ -49,7 +72,7 @@ const styles = StyleSheet.create({
   },
   text1: {
     color: "orange",
-    fontWeight: "600",
+    fontFamily: "DMSans_700Bold",
     fontSize: 22,
     marginTop: 30,
   },
@@ -58,6 +81,7 @@ const styles = StyleSheet.create({
     padding: 20,
     fontSize: 16,
     textAlign: "center",
+    fontFamily: "DMSans_400Regular",
   },
   details: {
     flexDirection: "row",
@@ -68,6 +92,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 18,
     textAlign: "center",
+    fontFamily: "DMSans_500Medium",
   },
   ibtn: {
     backgroundColor: "orange",

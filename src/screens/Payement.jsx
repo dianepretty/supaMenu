@@ -14,6 +14,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import {} from "react-native-web";
 import { EvilIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const Payement = () => {
   const [credit, setCredit] = useState({
@@ -31,6 +32,8 @@ const Payement = () => {
     } else {
     }
   };
+
+  const navigation = useNavigation();
 
   return (
     <View>
@@ -51,14 +54,14 @@ const Payement = () => {
             justifyContent: "center",
           }}
         >
-          <View>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Ionicons
               style={{ marginLeft: "auto", marginRight: "auto" }}
               name="chevron-back"
               size={24}
               color="#25D482"
             />
-          </View>
+          </TouchableOpacity>
         </TouchableOpacity>
         <View
           style={{
@@ -247,7 +250,10 @@ const Payement = () => {
         payment
       </Text>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("PaymentDone")}
+      >
         <FontAwesome
           style={{ marginRight: 10 }}
           name="lock"

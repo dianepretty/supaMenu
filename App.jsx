@@ -3,20 +3,23 @@ import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./src/navigation/Tabs";
 import LandingPage from "./src/screens/LandingPage";
 import AuthStack from "./src/navigation/AuthStack";
-import Cart from "./src/screens/Cart";
+import {
+  useFonts,
+  DMSans_400Regular,
+  DMSans_500Medium,
+  DMSans_700Bold,
+} from "@expo-google-fonts/dev";
 
 export default function App() {
-  const [appIsReady, setAppIsReady] = useState(false);
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(false);
+  const [fontsLoaded] = useFonts({
+    DMSans_400Regular,
+    DMSans_500Medium,
+    DMSans_700Bold,
+  });
 
-  useEffect(() => {
-    setTimeout(() => {
-      setAppIsReady(true);
-    }, 3000);
-  }, []);
-
-  return appIsReady ? (
-    <NavigationContainer>{auth ? <Tabs /> : <AuthStack/>}</NavigationContainer>
+  return fontsLoaded ? (
+    <NavigationContainer>{auth ? <Tabs /> : <AuthStack />}</NavigationContainer>
   ) : (
     <LandingPage />
   );

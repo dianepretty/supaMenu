@@ -50,6 +50,19 @@ const RateUs = () => {
     }
   };
 
+  const navigation = useNavigation();
+
+  const resetStack = () => {
+    // navigation.dispatch((state) =>
+    //   CommonActions.reset({
+    //     ...state,
+    //     index: 0,
+    //     // actions: [CommonActions.navigate({ routeName: "CartH" })],
+    //   })
+    // );
+    navigation.navigate("CartH");
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar
@@ -93,7 +106,8 @@ const RateUs = () => {
         </Text>
       </View>
 
-      <View
+      <TouchableOpacity
+        onPress={resetStack}
         style={{
           flexDirection: "row",
           alignItems: "center",
@@ -107,7 +121,7 @@ const RateUs = () => {
         <Text style={{ color: "orange", fontSize: 40, fontWeight: "bold" }}>
           Menu
         </Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
