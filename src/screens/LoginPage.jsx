@@ -8,12 +8,13 @@ import {
 } from "react-native";
 import React, { Component, useState } from "react";
 import { MaterialCommunityIcons, AntDesign, Zocial } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { Link } from "@react-navigation/native";
 import SignUpPage from "./SignUpPage";
 
 const LoginPage=()=> {
-
+  const navigation = useNavigation()
   const [email,setEmail]=useState("");
   const [pass,setPass]=useState("");
  
@@ -51,7 +52,7 @@ const LoginPage=()=> {
               <MaterialCommunityIcons
                 name="email-outline"
                 size={24}
-                color="gray"
+                color="#9098b1"
               />
               <TextInput  defaultValue={email} onChangeText={newEmail=>setEmail(newEmail)}  style={styles.input} />
             </View>
@@ -79,7 +80,7 @@ const LoginPage=()=> {
                   style={{
                     width: 70,
                     fontWeight: "bold",
-                    color: "gray",
+                    color: "#9098b1",
                     textAlign: "center",
                   }}
                 >
@@ -90,24 +91,26 @@ const LoginPage=()=> {
             </View>
 
             <View style={styles.Gbutton}>
-              <AntDesign name="google" size={24} color="grey" />
+              <AntDesign name="google" size={24} color="gray" />
               <TouchableOpacity>
                 <Text style={styles.GbuttonTitle}>Login with Google</Text>
               </TouchableOpacity>
             </View>
 
             <View style={styles.Gbutton}>
-              <Zocial name="facebook" size={24} color="grey" />
+              <Zocial name="facebook" size={24} color="gray" />
               <TouchableOpacity>
                 <Text style={styles.GbuttonTitle}>Login with Facebook</Text>
               </TouchableOpacity>
             </View>
+             <TouchableOpacity>
             <Text style={styles.forgotBut}>Forgot password?</Text>
+            </TouchableOpacity>
             <View style={styles.title}>
               <Text style={styles.registerButt}>Don't have an account ?</Text>
-              <Link to={{screen:SignUpPage}}>
-              <Text style={styles.registerBut}>Register</Text>
-              </Link>
+             <TouchableOpacity onPress={()=>navigation.navigate("SignUp")}>
+             <Text style={styles.registerBut}>Register</Text>
+             </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -124,9 +127,9 @@ const styles = StyleSheet.create({
   },
   minicontainer: {
     backgroundColor: "white",
-    marginTop: 80,
-    borderTopRightRadius: 32,
-    borderTopLeftRadius: 32,
+    marginTop: 65,
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
     height: 780,
   },
   title: {
@@ -135,29 +138,28 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   supa: {
-    fontSize: 45,
+    fontSize: 38,
     fontWeight: "700",
   },
   menu: {
-    fontSize: 45,
+    fontSize: 38,
     fontWeight: "700",
     color: "orange",
   },
   welc: {
     fontWeight: "500",
-    fontSize: 17,
+    fontSize: 15,
     color: "gray",
     alignSelf: "center",
-    marginTop: 30,
+    marginTop: 12,
   },
   filltext: {
     color: "gray",
     alignSelf: "center",
-    fontSize: 15,
-    marginTop: 10,
+    fontSize: 14,
+    marginTop: 5,
   },
   form: {
-    marginTop: 20,
     marginBottom: 20,
   },
 
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     paddingLeft: 10,
-    color: "gray",
+    color: "#9098b1",
     fontSize: 13,
   },
   button: {
@@ -197,7 +199,6 @@ const styles = StyleSheet.create({
   },
   line: {
     color: "gray",
-    marginTop: 20,
     textAlign: "center",
   },
   divider: {
@@ -219,7 +220,7 @@ const styles = StyleSheet.create({
 
   GbuttonTitle: {
     color: "#9098b1",
-    marginLeft: 90,
+    marginLeft: 68,
     fontSize: 14,
     textAlign: "center",
     fontWeight: "bold",

@@ -11,9 +11,10 @@ import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-export default class SignUpPage extends Component {
-  render() {
+export default function SignUpPage(){
+ const navigation = useNavigation()
     return (
       <View style={styles.container}>
         <View style={styles.minicontainer}>
@@ -25,18 +26,18 @@ export default class SignUpPage extends Component {
           <Text style={styles.filltext}>Please fill in the information</Text>
           <View style={styles.form}>
             <View style={styles.inputGroup}>
-              <Ionicons name="person-outline" size={25} color="gray" />
+              <Ionicons name="person-outline" size={25} color="#9098b1" />
               <TextInput placeholder="Full Name" style={styles.input} />
             </View>
             <View style={styles.inputGroup}>
-              <MaterialIcons name="smartphone" size={24} color="gray" />
+              <MaterialIcons name="smartphone" size={24} color="#9098b1" />
               <TextInput placeholder="Phone Number" style={styles.input} />
             </View>
             <View style={styles.inputGroup}>
               <MaterialCommunityIcons
                 name="email-outline"
                 size={24}
-                color="gray"
+                color="#9098b1"
               />
               <TextInput placeholder="Your Email" style={styles.input} />
             </View>
@@ -44,6 +45,7 @@ export default class SignUpPage extends Component {
             <TouchableOpacity title="Submit" style={styles.button}>
               <Text style={styles.buttonTitle}>Proceed</Text>
             </TouchableOpacity>
+
             <View
               style={{
                 flexDirection: "row",
@@ -59,7 +61,7 @@ export default class SignUpPage extends Component {
                   style={{
                     width: 70,
                     fontWeight: "bold",
-                    color: "gray",
+                    color: "#9098b1",
                     textAlign: "center",
                   }}
                 >
@@ -71,25 +73,21 @@ export default class SignUpPage extends Component {
 
             <Text style={styles.line}>If you have a PMG account</Text>
 
-            <TouchableOpacity title="Submit" style={styles.button}>
-              <Text style={styles.buttonTitle}>Proceed</Text>
-            </TouchableOpacity>
-            <Text style={styles.line}>OR</Text>
-            <Text style={styles.line}>If you have a PMG account</Text>
-
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity onPress={()=>navigation.navigate("Home")} style={styles.button}>
               <Text style={styles.buttonTitle}>Sign in</Text>
             </TouchableOpacity>
             <View style={styles.title}>
-              <Text style={styles.registerButt}>Don't have an account ?</Text>
-              <Text style={styles.registerBut}>Register</Text>
+              <Text style={styles.registerButt}>Already have an account ?</Text>
+              <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
+              <Text style={styles.registerBut}>Sign in</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
       </View>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -98,7 +96,7 @@ const styles = StyleSheet.create({
   },
   minicontainer: {
     backgroundColor: "#ffffff",
-    marginTop: 80,
+    marginTop: 65,
     borderTopRightRadius: 32,
     borderTopLeftRadius: 32,
     height: 780,
@@ -106,32 +104,30 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: "row",
     alignSelf: "center",
-    marginTop: 10,
   },
   supa: {
-    fontSize: 40,
+    fontSize: 38,
     fontWeight: "700",
   },
   menu: {
-    fontSize: 40,
+    fontSize: 38,
     fontWeight: "700",
     color: "orange",
   },
   welc: {
     fontWeight: "500",
-    fontSize: 17,
+    fontSize: 15,
     color: "gray",
     alignSelf: "center",
-    marginTop: 30,
+    marginTop: 12,
   },
   filltext: {
     color: "gray",
     alignSelf: "center",
-    fontSize: 15,
-    marginTop: 10,
+    fontSize: 14,
+    marginTop: 5,
   },
   form: {
-    marginTop: 20,
     marginBottom: 20,
   },
 
@@ -140,7 +136,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#f2f0f0",
-    height: 60,
+    height: 58,
     borderRadius: 5,
     paddingLeft: 10,
     marginTop: 15,
@@ -165,12 +161,12 @@ const styles = StyleSheet.create({
 
   buttonTitle: {
     color: "white",
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
   },
   line: {
     color: "gray",
-    marginTop: 20,
     textAlign: "center",
   },
   divider: {
@@ -184,6 +180,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     margin: 10,
+    padding: 15,
     backgroundColor: "fff",
     borderWidth: 1,
     borderColor: "#f2f0f0",
@@ -191,7 +188,7 @@ const styles = StyleSheet.create({
 
   GbuttonTitle: {
     color: "gray",
-    margin: 10,
+    marginLeft: 90,
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -225,14 +222,13 @@ const styles = StyleSheet.create({
   },
   line: {
     color: "gray",
-    marginTop: 20,
+    marginTop: 10,
     textAlign: "center",
   },
   Gbutton: {
     padding: 12,
     borderRadius: 5,
     margin: 10,
-
     backgroundColor: "fff",
     borderWidth: 1,
     borderColor: "#f2f0f0",
