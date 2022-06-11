@@ -6,12 +6,13 @@ import {
   TouchableOpacity,
   Alert 
 } from "react-native";
-import React, { Component, useState } from "react";
+import React, { Component, useState,useContext } from "react";
 import { MaterialCommunityIcons, AntDesign, Zocial } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { Link } from "@react-navigation/native";
 import SignUpPage from "./SignUpPage";
+
 
 const LoginPage=()=> {
   const navigation = useNavigation()

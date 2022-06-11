@@ -35,6 +35,7 @@
     "simple-swizzle": "^0.2.2",
     "tailwind-rn": "^4.2.0",
     "twrnc": "^3.3.1",
+    "use-state-if-mounted": "^1.0.7",
     "webpack-dev-server": "^4.9.0",
     "yarn": "^1.22.18"
   },

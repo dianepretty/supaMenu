@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,createContext, useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./src/navigation/Tabs";
 import LandingPage from "./src/screens/LandingPage";
 import AuthStack from "./src/navigation/AuthStack";
+
 import {
   useFonts,
   DMSans_400Regular,
@@ -10,8 +11,13 @@ import {
   DMSans_700Bold,
 } from "@expo-google-fonts/dev";
 
+
+
 export default function App() {
-  const [auth, setAuth] = useState(false);
+
+
+
+  const [auth,setAuth]=useState(true)
   const [fontsLoaded] = useFonts({
     DMSans_400Regular,
     DMSans_500Medium,
@@ -19,8 +25,15 @@ export default function App() {
   });
 
   return fontsLoaded ? (
+
     <NavigationContainer>{auth ? <Tabs /> : <AuthStack />}</NavigationContainer>
+
+   
   ) : (
+
     <LandingPage />
+
+    
   );
+
 }

@@ -4,16 +4,42 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Alert
 } from "react-native";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   Ionicons,
   MaterialIcons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 export default function SignUpPage(){
+
+  const [name,setName]=useState("");
+  const [phone,setPhone]=useState("")
+  const [email,setEmail]=useState("");
+  const [pass,setPass]=useState("");
+
+  const base="http://196.223.240.154:8099/supapp";
+  const sign=async()=>{
+    await axios.post(`${base}/api/auth/client/signup`, {
+      email: email,
+      firstName: name,
+      lastName: "user",
+      mobile: phone,
+      password: pass
+    })
+    .then(function (response) {
+      navigation.navigate("Login")
+      
+    })
+    .catch(function (error) {
+    Alert.alert("Check your provided details");
+    console.log(error);
+    });
+  }
  const navigation = useNavigation()
     return (
       <View style={styles.container}>
@@ -27,11 +53,11 @@ export default function SignUpPage(){
           <View style={styles.form}>
             <View style={styles.inputGroup}>
               <Ionicons name="person-outline" size={25} color="#9098b1" />
-              <TextInput placeholder="Full Name" style={styles.input} />
+              <TextInput  defaultValue={name} onChangeText={newName=>setName(newName)} placeholder="Full Name" style={styles.input} />
             </View>
             <View style={styles.inputGroup}>
               <MaterialIcons name="smartphone" size={24} color="#9098b1" />
-              <TextInput placeholder="Phone Number" style={styles.input} />
+              <TextInput defaultValue={phone} onChangeText={newPhone=>setPhone(newPhone)} placeholder="Phone Number" style={styles.input} />
             </View>
             <View style={styles.inputGroup}>
               <MaterialCommunityIcons
@@ -39,10 +65,18 @@ export default function SignUpPage(){
                 size={24}
                 color="#9098b1"
               />
-              <TextInput placeholder="Your Email" style={styles.input} />
+              <TextInput defaultValue={email} onChangeText={newEmail=>setEmail(newEmail)} placeholder="Your Email" style={styles.input} />
+            </View>
+            <View style={styles.inputGroup}>
+              <MaterialCommunityIcons
+                name="email-outline"
+                size={24}
+                color="#9098b1"
+              />
+              <TextInput onChangeText={newPass=>setPass(newPass)} secureTextEntry={true} defaultValue={pass} placeholder="Password" style={styles.input} />
             </View>
 
-            <TouchableOpacity title="Submit" style={styles.button}>
+            <TouchableOpacity onPress={()=>sign()} title="Submit" style={styles.button}>
               <Text style={styles.buttonTitle}>Proceed</Text>
             </TouchableOpacity>
 
