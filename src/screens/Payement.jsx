@@ -16,7 +16,7 @@ import {} from "react-native-web";
 import { EvilIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-
+import axios from "axios";
 const Payement = () => {
   const [credit, setCredit] = useState({
     color: "black",
@@ -28,10 +28,36 @@ const Payement = () => {
     bg: "#25D482",
   });
 
-  const payMethod = (method) => {
-    if (method == "card") {
-    } else {
+  let token =
+  "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxIiwic3ViIjoiMSIsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJ1c2VyIjp7ImlkIjoxLCJuYW1lIjoiQWRtaW4gVXNlciAwNzg4NjgzMTExIiwidXNlcm5hbWUiOiIwODgyODMiLCJtb2JpbGUiOm51bGwsImF1dGhvcml0aWVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJlbmFibGVkIjp0cnVlfSwiaWF0IjoxNjU0OTU2NzA5LCJleHAiOjE2NTUwNDMxMDl9.0NGKk0yBkHMZQLA8S1YVU0De2pmHpKA0V1DRHFasp6NmEFojzZitGnAusaRg4L8jl-QvV8RD4cX4jy3UxhProw";
+  const base="http://196.223.240.154:8099/supapp";
+
+
+  const payMethod =async(method) => {
+    const data={
+      "msisdn": "string",
+      "orderInfo": 7,
+      "regChannel": "USSD",
+      "telecom": "MTN"
     }
+    const options = {
+      headers: {
+        Authorization: `Bearer ${token}}`,
+      },
+    }
+    
+   await axios.post(`${base}/api/payments/momo`,data,{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+   })
+    .then(function (response) {
+  
+      console.log(response.data);
+    })
+    .catch(function (error) {
+console.log("error hrere", error.response.data);
+    });
   };
 
   const navigation = useNavigation();
@@ -163,6 +189,8 @@ const Payement = () => {
 
       <View style={{ marginTop: 55 }}>
         <TouchableOpacity
+
+        onPress={()=>payMethod("MTN")}
           style={{ backgroundColor: "white", marginLeft: 40, marginRight: 40 }}
         >
           <View style={{ flexDirection: "row" }}>
@@ -185,6 +213,8 @@ const Payement = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
+
+        onPress={()=>payMethod("AIRTEL")}
           style={{
             backgroundColor: "white",
             marginLeft: 40,
