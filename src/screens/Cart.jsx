@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { addOrderInfo } from "../services/RestaurantService";
 
 export default function Cart({ navigation, item }) {
   const [items, setItems] = useState([]);
@@ -30,6 +31,21 @@ export default function Cart({ navigation, item }) {
       }
     }
     return n_price;
+  };
+
+  const addOrder = () => {
+    let order = {
+      orderDetails: items.map((i) => ({
+        item: i.id,
+        quantity: i.quantity,
+      })),
+      orderType: "PICK_AND_GO",
+      seat: 0,
+      status: "ORDERING",
+    };
+    addOrderInfo(order)
+      .then((res) => navigation.navigate("Payment", { orderInfo: res.id }))
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -107,10 +123,7 @@ export default function Cart({ navigation, item }) {
         <Text style={[{ fontSize: 20 }, styles.text]}>Total</Text>
         <Text style={[{ fontSize: 20 }, styles.text]}>Frw {getTotal()}</Text>
       </View>
-      <TouchableOpacity
-        style={styles.ibtn}
-        onPress={() => navigation.navigate("Payment")}
-      >
+      <TouchableOpacity style={styles.ibtn} onPress={addOrder}>
         <Text style={styles.ibtn_text}>Proceed to checkout</Text>
       </TouchableOpacity>
     </View>

@@ -5,10 +5,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { MaterialCommunityIcons, AntDesign, Zocial } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-export default function LoginPage() {
+export default function LoginPage(parentProps) {
+  const [error, setError] = useState(false);
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -19,6 +20,9 @@ export default function LoginPage() {
         </View>
         <Text style={styles.welc}>Welcome...</Text>
         <Text style={styles.filltext}>Sign in to continue</Text>
+        <Text style={[{ display: error ? "flex" : "none" }, styles.error]}>
+          Invalid Credentials
+        </Text>
         <View style={styles.form}>
           <View style={styles.inputGroup}>
             <MaterialCommunityIcons
@@ -38,7 +42,7 @@ export default function LoginPage() {
           </View>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("Home")}
+            onPress={() => parentProps.parentProps.setAuth(true)}
             title="Submit"
             style={styles.button}
           >
@@ -215,5 +219,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
     marginTop: 4,
+  },
+  error: {
+    marginHorizontal: 15,
+    color: "red",
+    marginTop: 20,
   },
 });

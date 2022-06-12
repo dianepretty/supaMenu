@@ -11,7 +11,7 @@ import {
 } from "@expo-google-fonts/dev";
 
 export default function App() {
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(false);
   const [fontsLoaded] = useFonts({
     DMSans_400Regular,
     DMSans_500Medium,
@@ -19,7 +19,9 @@ export default function App() {
   });
 
   return fontsLoaded ? (
-    <NavigationContainer>{auth ? <Tabs /> : <AuthStack />}</NavigationContainer>
+    <NavigationContainer>
+      {auth ? <Tabs /> : <AuthStack setAuth={setAuth} />}
+    </NavigationContainer>
   ) : (
     <LandingPage />
   );

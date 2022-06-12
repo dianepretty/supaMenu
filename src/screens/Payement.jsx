@@ -16,7 +16,7 @@ import { EvilIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const Payement = () => {
+const Payement = ({ route }) => {
   const [credit, setCredit] = useState({
     color: "black",
     bg: "white",
@@ -32,6 +32,8 @@ const Payement = () => {
     } else {
     }
   };
+
+  console.log("Order---", route.params.orderInfo);
 
   const navigation = useNavigation();
 
